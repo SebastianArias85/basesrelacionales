@@ -1,0 +1,28 @@
+NOMBRE DE LA BASE DE DATOS= "animal"
+
+
+CREATE TABLE `mascotas` (
+  `iosfa` int(11) NOT NULL,                 -- Clave primaria proporcionada manualmente
+  `nombre` varchar(100) NOT NULL,           -- Nombre de la mascota
+  `edad` int(11) NOT NULL,                  -- Edad de la mascota
+  `descripcion` varchar(255) NOT NULL,      -- Descripción de la mascota
+  `tipo_animal` enum('domestico','granja') NOT NULL DEFAULT 'domestico',  -- Tipo de animal
+  PRIMARY KEY (`iosfa`)                     -- La clave primaria de la tabla
+);
+
+
+CREATE TABLE `amos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,     -- Clave primaria auto-incremental
+  `iosfa` int(11) NOT NULL,                 -- Clave foránea proporcionada manualmente
+  `amo` varchar(100) DEFAULT NULL,          -- Nombre de la persona
+  PRIMARY KEY (`id`),                       -- La clave primaria de la tabla
+  KEY `iosfa` (`iosfa`),                    -- Índice para la columna `iosfa`
+  CONSTRAINT `amos_ibfk_1` FOREIGN KEY (`iosfa`) REFERENCES `mascotas` (`iosfa`)  -- Relación con `mascotas`
+);
+
+
+¿Qué significa amos_ibfk_1?
+
+    amos: El nombre de la tabla que tiene la clave foránea.
+    ibfk: Un prefijo utilizado por MySQL para identificar las claves foráneas (se deriva de "interna de clave foránea").
+    1: Un número que indica el índice o identificador de la clave foránea (en caso de que haya múltiples claves foráneas en una tabla).

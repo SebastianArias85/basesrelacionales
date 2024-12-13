@@ -1,0 +1,3 @@
+Sistema en el que trae y carga datos de tablas relacionadas tabla principal es "mascotas" y la tabla "amos" se relaciona con la primera a traves del campo "iosfa" el cual es un "id" no autoincrementable.
+
+La base de datos esta en esta misma carpeta
